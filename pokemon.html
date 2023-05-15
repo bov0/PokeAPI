@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="pokemon.css">
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="https://shorturl.at/mEOW4" alt="Pokeball logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div id="container">
+        <div id="pokemon-info">
+            <!-- Aquí es donde se mostrará la información del Pokemon -->
+        </div>
+    </div>
+    <script>
+        // Obtener el nombre del Pokemon de la URL
+        var queryString = window.location.search;
+        var urlParams = new URLSearchParams(queryString);
+        var pokemonName = urlParams.get('name');
+
+        // Obtener los datos del Pokemon de PokeAPI
+        var url = "https://pokeapi.co/api/v2/pokemon/" + pokemonName;
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                // Crear un elemento div para la tarjeta
+                var card = document.createElement("div");
+                card.className = "card";
+
+                // Agregar la imagen del Pokemon a la tarjeta
+                var img = document.createElement("img");
+                img.src = data.sprites.front_default;
+                card.appendChild(img);
+
+                // Agregar el nombre del Pokemon a la tarjeta
+                var name = document.createElement("h2");
+                name.innerHTML = data.name;
+                card.appendChild(name);
+
+                // Agregar el tipo del Pokemon a la tarjeta
+                var types = document.createElement("p");
+                types.innerHTML = "Tipo: " + data.types.map(type => type.type.name).join(", ");
+                card.appendChild(types);
+
+                // Agregar la altura del Pokemon a la tarjeta
+                var height = document.createElement("p");
+                height.innerHTML = "Altura: " + data.height / 10 + " m";
+                card.appendChild(height);
+
+                // Agregar el peso del Pokemon a la tarjeta
+                var weight = document.createElement("p");
+                weight.innerHTML = "Peso: " + data.weight / 10 + " kg";
+                card.appendChild(weight);
+
+                // Agregar la tarjeta al contenedor de la información del Pokemon
+                var pokemonInfo = document.getElementById("pokemon-info");
+                pokemonInfo.appendChild(card);
+            });
+    </script>
+
+    <footer>
+        <p>Creado por Iván Fernández Cerro</p>
+    </footer>
+
+</body>
+
+</html>

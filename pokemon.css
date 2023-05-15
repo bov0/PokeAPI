@@ -1,0 +1,107 @@
+/* Fuentes */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+/* Estilos generales */
+* {
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    margin: 0;
+    background-color: #f9f9f9;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+a {
+    color: #333333;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #ff0000;
+}
+
+/* Header */
+header {
+    background-color: #333333;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    margin-bottom: 10%;
+}
+
+.logo img {
+    height: 50px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav a {
+    font-weight: bold;
+    color:#f9f9f9;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+}
+
+nav a.active,
+nav a:hover {
+    background-color: #ff0000;
+    color: #f9f9f9;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+#pokemon-info {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+#pokemon-info .card {
+    width: 300px;
+    margin: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    padding: 20px;
+}
+
+#pokemon-info .card img {
+    max-width: 100%;
+}
+
+#pokemon-info .card h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+#pokemon-info .card p {
+    font-size: 16px;
+}
+
+/* Footer */
+footer {
+    background-color: #333333;
+    color: #f9f9f9;
+    text-align: center;
+    padding: 1rem;
+    margin-top: auto;
+}
